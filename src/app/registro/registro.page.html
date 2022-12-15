@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="warning">Registro</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <form [formGroup]="formularioRegistro" (keyup.enter)="CrearUsuario()"
+     #formulario="ngForm" (ngSubmit) ="onSubmit()">
+      <ion-list-header>
+        <br>
+        <ion-label class="lbl">Registro de acceso DUOC</ion-label>
+        <br>
+      </ion-list-header>
+      <ion-label class="lbl">¿Ya estas registrado?</ion-label>
+      <br>
+      <ion-button expand="block" shape="round" size="small" color="warning"  routerLink="/login">
+        INICIAR SESION
+      </ion-button>
+      <br><br>
+      <ion-item>
+        <ion-label>Usuario: </ion-label>
+        <ion-input type="text" placeholder="Usuario" formControlName="nombre"
+                   name="nombre" [(ngModel)]= "usuario.nombre" required>
+        </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Correo: </ion-label>
+        <ion-input type="email" placeholder="Correo" formControlName="correo"
+                   name="email" value="" [(ngModel)]= "usuario.email"
+                   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                   required>
+        </ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Contraseña: </ion-label>
+        <ion-input type="password" placeholder="Contraseña" formControlName="password"
+                   name="password" value="" [(ngModel)]= "usuario.password"
+                   required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Repetir: </ion-label>
+        <ion-input type="password" placeholder="Contraseña" formControlName="confirmaPass"
+                   name="repassword" value="" [(ngModel)]= "usuario.repassword"
+                   required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>[ 1 ] si es Profesor  [ 2 ] si es Alumno</ion-label>
+        <ion-input type="number"  placeholder="Cargo" formControlName="tipoUsuario"
+        name="tipousuario" value="" [(ngModel)]= "usuario.tipousuario" required>
+      </ion-input>
+      </ion-item>
+      <br><br>
+      <ion-button [disabled] ="formulario.invalid" (click)="CrearUsuario()"
+      expand="block" shape="round" size="large" color="warning"  routerLink="/login">
+        ACEPTAR
+      </ion-button>
+    </form>
+  </ion-content>

@@ -1,0 +1,48 @@
+<ion-header>
+<ion-toolbar>
+  <ion-title color="warning">Iniciar Sesión</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content>
+  <form  [formGroup]="formularioLogin" #formulario="ngForm" (ngSubmit) ="onSubmit()">
+    <ion-list-header>
+      <br>
+      <ion-label class="lbl">Utiliza tu credenciales de acceso DUOC</ion-label>
+      <br>
+    </ion-list-header>
+    <ion-label class="lbl">¿No estas registrado?</ion-label>
+    <br>
+    <ion-button (click)="onClick()" expand="block" shape="round" size="small" color="warning"  routerLink="/registro">
+      REGISTRO
+    </ion-button>
+    <br><br>
+    <ion-item>
+      <ion-label>Usuario: </ion-label>
+      <ion-input type="text" placeholder="Usuario"
+                 name="nombre" [(ngModel)]= "usuario.nombre" formControlName="nomUsuario" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Correo: </ion-label>
+      <ion-input type="email" placeholder="Correo"
+                 name="email" value="" [(ngModel)]= "usuario.email" formControlName="correoUsuario"
+                 pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                 required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contraseña: </ion-label>
+      <ion-input type="password" placeholder="Contraseña"
+                 name="password" value="" [(ngModel)]= "usuario.password" formControlName="passUsuario"
+                 required>
+      </ion-input>
+    </ion-item>
+    <br><br>
+    <ion-button [disabled] ="formulario.invalid" (click)="Ingresar()"
+    expand="block" shape="round" size="large" color="warning"  routerLink="/inicio">
+      INGRESAR
+    </ion-button>
+  </form>
+</ion-content>

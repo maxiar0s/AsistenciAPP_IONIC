@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="warning">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="warning">QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card class="ion-text-center">
+     <ion-card-content>
+
+       <ion-item>
+         <ion-label position="fixed">Nombre: </ion-label>
+         <ion-input type="text" [(ngModel)]="usuario.nombre" required></ion-input>
+       </ion-item>
+
+       <ion-button color="warning"
+           expand="block" 
+           class="ion-margin" 
+           (click)="generaScan()">
+           Generar codigo qr
+       </ion-button>
+
+       <qrcode 
+         [qrdata]="qrCodeString" 
+         [width]="256" 
+         [errorCorrectionLevel]="'M'">
+       </qrcode>
+
+
+     </ion-card-content>
+  </ion-card>
+
+  <ion-button color="warning"
+     expand="block" 
+     class="ion-margin" 
+     (click)="verScan()">
+         Ver resultado
+   </ion-button>
+
+   <ion-item>
+     <ion-label class="ion-text-wrap">Resultado: {{scannedResult}}</ion-label>
+   </ion-item>
+</ion-content>

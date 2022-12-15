@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="warning">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+   <ion-title color="warning">ASISTENCIA</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br>
+<ion-list-header>
+  <ion-label class="lbl">Revisa las asistencias</ion-label>
+</ion-list-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-select interface="popover" placeholder="Seleccione sección">
+        <ion-select-option value="Seccion1">Seccion 001</ion-select-option>
+        <ion-select-option value="Seccion2">Seccion 002</ion-select-option>
+        <ion-select-option value="Seccion3">Seccion 003</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+  <ion-item>
+    <ion-label>Alumno Uno</ion-label>
+    <ion-checkbox color="warning" slot="start"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>Alumno Dos</ion-label>
+    <ion-checkbox color="warning" checked="true"slot="start"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>Alumno Tres</ion-label>
+    <ion-checkbox color="warning" checked="true" slot="start"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>Alumno Cuatro</ion-label>
+    <ion-checkbox color="warning" checked="true" slot="start"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>Alumno Cinco</ion-label>
+    <ion-checkbox color="warning" slot="start"></ion-checkbox>
+  </ion-item>
+</ion-list>
+<br><br>
+<ion-button (click)="Guardar()"expand="full" shape="round" size="large" color="warning" fill="outline">
+  Guardar
+</ion-button>
+</ion-content>
